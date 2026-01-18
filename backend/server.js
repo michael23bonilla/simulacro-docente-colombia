@@ -12,6 +12,10 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/concurso_d
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the parent directory (frontend)
+const path = require('path');
+app.use(express.static(path.join(__dirname, '..')));
+
 // Connect to MongoDB
 mongoose.connect(MONGO_URI)
     .then(() => console.log('✅ MongoDB Connected'))
