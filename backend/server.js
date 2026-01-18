@@ -6,7 +6,8 @@ const Question = require('./models/Question');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/concurso_docente';
+// Support both variable names to avoid configuration errors
+const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://localhost:27017/concurso_docente';
 
 // Middleware
 app.use(cors());
